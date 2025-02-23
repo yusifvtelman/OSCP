@@ -1,5 +1,4 @@
 ## Info
-
 - **Type:** File transfer and synchronization utility.
 - **Common Usage:** Backup, mirroring, and transferring files over a network.
 - **Security Note:** Misconfigured rsync daemons can expose sensitive directories for anonymous read (or even write) access. Always check for authentication requirements and module configurations.

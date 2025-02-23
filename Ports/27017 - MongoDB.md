@@ -1,8 +1,9 @@
+#database
 ## Info
-
 - **Type:** NoSQL Database
 - **Common Usage:** Document storage, real-time analytics, caching
 - **Note:** MongoDB instances sometimes allow unauthenticated access or default credentials, which can be exploited for further enumeration or data extraction.
+
 ## Basic Commands
 
 ```bash
