@@ -1,4 +1,4 @@
-### Info
+## Info
 ### Dirsearch
 ```bash
 dirsearch -u $URL
