@@ -1,9 +1,10 @@
-## Nmap
+## Active Recon
+### Nmap
 ```bash
 nmap -T3 -sC -sV -oA initial_scan $IP
 ```
 
-### Port based
+#### Port based
 #### [[21 - FTP]]
 #### [[23 - Telnet]]
 #### [[80 - HTTP]]
@@ -12,3 +13,5 @@ nmap -T3 -sC -sV -oA initial_scan $IP
 #### [[3306 - MySQL]]
 #### [[6379 - Redis]]
 #### [[27017 - MongoDB]]
+
+## Passive Recon

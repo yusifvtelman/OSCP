@@ -1,3 +1,3 @@
 
-### [[Recon]]
+### [[Reconnaissance]]
 ### [[Preparation]]
