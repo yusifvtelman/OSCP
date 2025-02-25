@@ -1,3 +1,4 @@
+#database 
 ## Info
 - **Type:** Relational Database Management System (RDBMS)
 - **Common Usage:** Often used for web applications, data analysis, and as a backend for APIs.
@@ -20,4 +21,9 @@ psql -h $IP -U $USER -d $DB_NAME
 # Describe the structure of a table
 \d $TABLE_NAME
 
+# Query data from a table
+SELECT * FROM $TABLE_NAME;
+
+# Check for users (if access to postgres is granted)
+SELECT * FROM pg_user;
 ```
