@@ -11,6 +11,7 @@ nmap -T3 -sC -sV -oA initial_scan $IP
 #### [[445 - SMB]]
 #### [[873 - Rsync]]
 #### [[3306 - MySQL]]
+#### [[5432 - Postgresql]]
 #### [[6379 - Redis]]
 #### [[27017 - MongoDB]]
 
