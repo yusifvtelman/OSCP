@@ -1,6 +1,6 @@
 
-### [[Reconnaissance]]
-### [[Preparation]]
-### [[Exploitation]]
-### [[Privilege Escalation]]
-### [[Post Exploitation]]
+## [[Reconnaissance]]
+## [[Preparation]]
+## [[Exploitation]]
+## [[Privilege Escalation]]
+## [[Post Exploitation]]
