@@ -1,5 +1,10 @@
 ## Active Recon
 ### Nmap
+
+```bash
+nmap -sV -Pn -T4 $IP
+```
+
 ```bash
 nmap -T3 -sC -sV -oA initial_scan $IP
 ```
