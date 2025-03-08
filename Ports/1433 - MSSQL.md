@@ -1,4 +1,4 @@
-#database 
+#Database 
 ## Info
 - **Type:** Relational Database Management System (RDBMS)
 - **Common Usage:** Enterprise applications, web applications, Windows-based infrastructure

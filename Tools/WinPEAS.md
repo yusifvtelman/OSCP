@@ -1,4 +1,4 @@
-#tool 
+#Tool 
 ## Info
 - **Type:** Privilege Escalation Enumeration Tool
 - **Developer:** Carlos Polop

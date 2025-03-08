@@ -1,4 +1,4 @@
-#database 
+#Database 
 ## Info
 - **Type:** Relational Database Management System (RDBMS)
 - **Common Usage:** Often used for web applications, data analysis, and as a backend for APIs.

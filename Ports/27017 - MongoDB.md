@@ -1,4 +1,4 @@
-#database
+#Database
 ## Info
 - **Type:** NoSQL Database
 - **Common Usage:** Document storage, real-time analytics, caching

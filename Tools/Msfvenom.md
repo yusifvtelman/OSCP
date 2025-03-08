@@ -1,4 +1,4 @@
-#tool
+#Tool
 ## Info
 
 - **Type:** Payload generation tool

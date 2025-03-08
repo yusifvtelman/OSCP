@@ -1,4 +1,4 @@
-#database
+#Database
 ## Info
 - **Type:** Relational Database Management System (RDBMS)
 - **Common Usage:** Used for storing and managing structured data for web applications, enterprise systems, and more.

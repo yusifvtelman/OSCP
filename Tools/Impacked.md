@@ -1,4 +1,4 @@
-#tool 
+#Tool 
 ## Info
 
 - **Type:** Python Toolkit
