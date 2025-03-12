@@ -6,7 +6,7 @@
 - **Supports:** TCP, UDP, OS detection, script scanning, version detection, output formats
 - **Note:** One of the most essential tools during initial enumeration in penetration testing.
 
-### Basic Commands
+## Basic Commands
 
 Basic Scan
 ```bash
@@ -93,8 +93,7 @@ nmap -oG output.gnmap $IP        # Grepable
 nmap -oX output.xml $IP          # XML
 ```
 
-### Bypass Firewall / IDS
-
+Bypass Firewall / IDS
 ```bash
 nmap -f $IP                         # Fragment packets
 nmap -sS -T1 $IP                    # Stealthy slow scan
@@ -102,7 +101,7 @@ nmap --data-length 50 $IP          # Randomize packet size
 nmap --source-port 53 $IP          # Spoof source port (e.g., DNS)
 ```
 
-### Other Useful Options
+## Other Useful Options
 
 - `-Pn`: Skip host discovery (assume host is up)
 - `-n`: Skip DNS resolution
