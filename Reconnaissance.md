@@ -1,4 +1,5 @@
-
+1. Port Scanning
+2. Directory Scanning
 ## Port Scanning
 
 ### Tools
@@ -17,6 +18,7 @@ nmap -T3 -sC -sV -oA initial_scan $IP
 #### [[22 - SSH]]
 #### [[23 - Telnet]]
 #### [[80 - HTTP]]
+#### [[161 - SNMP]]
 #### [[389 - LDAP]]
 #### [[445 - SMB]]
 #### [[873 - Rsync]]
