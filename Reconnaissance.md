@@ -37,5 +37,8 @@ dirsearch -u $URL
 ```
 
 #### [[Wfuzz]]
+```bash
+wfuzz -c -w /usr/share/wordlists/dirb/common.txt --hc 404 http://$IP/FUZZ
+```
 ### Result
-#### /[[git]]
+#### /.[[git]]
