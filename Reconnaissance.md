@@ -35,5 +35,7 @@ nmap -T3 -sC -sV -oA initial_scan $IP
 ```bash
 dirsearch -u $URL
 ```
+
+#### [[Wfuzz]]
 ### Result
 #### /[[git]]
