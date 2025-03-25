@@ -42,4 +42,4 @@ wfuzz -c -w /usr/share/wordlists/dirb/common.txt --hc 404 http://$IP/FUZZ
 ```
 ### Result
 #### /[[DockerFile]]
-#### /.[[git]]
+#### /.[[Git]]
