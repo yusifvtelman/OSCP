@@ -10,6 +10,13 @@
 ```bash
 python3 -m pipx install impacket
 ```
+
+## GetUserSPNs
+
+```
+
+```
+
 ## Psexec
 
 ```bash
@@ -20,3 +27,4 @@ impacket-psexec $USER@$IP -p $PASSWORD
 ```bash
 
 ```
+
