@@ -36,6 +36,10 @@ nmap -T3 -sC -sV -oA initial_scan $IP
 dirsearch -u $URL
 ```
 
+#### [[Feroxbuster]]
+```
+```
+
 #### [[Wfuzz]]
 ```bash
 wfuzz -c -w /usr/share/wordlists/dirb/common.txt --hc 404 http://$IP/FUZZ
